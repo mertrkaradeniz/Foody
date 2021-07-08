@@ -51,6 +51,7 @@ dependencies {
     def coil_version = "1.2.2"
     def gson_version = "2.8.7"
     def shimmer_version = "0.5.0"
+    def shimmer_rv_version = "0.4.1"
     def jsoup_version = "1.13.1"
 
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
@@ -102,6 +103,7 @@ dependencies {
 
     // Shimmer
     implementation "com.facebook.shimmer:shimmer:$shimmer_version"
+    implementation "com.todkars:shimmer-recyclerview:$shimmer_rv_version"
 
     // Jsoup
     implementation "org.jsoup:jsoup:$jsoup_version"
