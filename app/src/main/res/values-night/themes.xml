@@ -1,0 +1,8 @@
+<resources>
+
+    <style name="Theme.Foody" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+        <item name="colorPrimary">@color/Primary</item>
+        <item name="colorPrimaryDark">@color/PrimaryDark</item>
+        <item name="colorSecondary">@color/Secondary</item>
+    </style>
+</resources>
