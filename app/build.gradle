@@ -98,9 +98,6 @@ dependencies {
     // Image Loading library Coil
     implementation "io.coil-kt:coil:$coil_version"
 
-    // Gson
-    implementation "com.google.code.gson:gson:$gson_version"
-
     // Shimmer
     implementation "com.facebook.shimmer:shimmer:$shimmer_version"
     implementation "com.todkars:shimmer-recyclerview:$shimmer_rv_version"
