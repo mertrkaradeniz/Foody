@@ -1,4 +1,4 @@
-package com.example.foody.ui
+package com.example.foody.ui.main
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle

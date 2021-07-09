@@ -1,4 +1,4 @@
-package com.example.foody.utils
+package com.example.foody.util
 
 object Constants {
 
