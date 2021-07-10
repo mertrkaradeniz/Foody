@@ -7,7 +7,7 @@ import retrofit2.http.QueryMap
 
 interface FoodRecipeApi {
 
-    @GET("recipe/complexSearch")
+    @GET("recipes/complexSearch")
     suspend fun getRecipes(
         @QueryMap queries: Map<String, String>
     ): Response<FoodRecipe>
