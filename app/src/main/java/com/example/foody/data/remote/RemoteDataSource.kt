@@ -1,4 +1,4 @@
-package com.example.foody.data
+package com.example.foody.data.remote
 
 import com.example.foody.data.model.FoodRecipe
 import com.example.foody.data.remote.FoodRecipeApi
