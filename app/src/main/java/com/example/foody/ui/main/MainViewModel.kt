@@ -4,10 +4,8 @@ import android.app.Application
 import android.content.Context
 import android.net.ConnectivityManager
 import android.net.NetworkCapabilities
-import androidx.lifecycle.AndroidViewModel
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.viewModelScope
+import androidx.lifecycle.*
+import com.example.foody.data.local.RecipesEntity
 import com.example.foody.data.model.FoodRecipe
 import com.example.foody.data.repository.FoodRecipeRepository
 import com.example.foody.util.Resource
@@ -23,6 +21,15 @@ class MainViewModel @Inject constructor(
     private val repository: FoodRecipeRepository
 ) : AndroidViewModel(application) {
 
+    /** ROOM DATABASE **/
+
+    val readRecipes: LiveData<List<RecipesEntity>> = repository.local.readDatabase().asLiveData()
+
+    private fun insertRecipes(recipesEntity: RecipesEntity) = viewModelScope.launch {
+        repository.local.insertRecipes(recipesEntity)
+    }
+
+    /** RETROFIT **/
     private val _recipesResponse: MutableLiveData<Resource<FoodRecipe>> = MutableLiveData()
     val recipesResponse: LiveData<Resource<FoodRecipe>> = _recipesResponse
 
@@ -36,6 +43,10 @@ class MainViewModel @Inject constructor(
             try {
                 val response = repository.remote.getRecipes(queries)
                 _recipesResponse.value = handleFoodRecipesResponse(response)
+                val foodRecipe = recipesResponse.value!!.data
+                if (foodRecipe != null) {
+                    offlineCacheRecipes(foodRecipe)
+                }
             } catch (e: Exception) {
                 _recipesResponse.value = Resource.Error("Recipes not found.")
             }
@@ -44,7 +55,12 @@ class MainViewModel @Inject constructor(
         }
     }
 
-    private fun handleFoodRecipesResponse(response: Response<FoodRecipe>): Resource<FoodRecipe>? {
+    private fun offlineCacheRecipes(foodRecipe: FoodRecipe) {
+        val recipesEntity = RecipesEntity(foodRecipe)
+        insertRecipes(recipesEntity)
+    }
+
+    private fun handleFoodRecipesResponse(response: Response<FoodRecipe>): Resource<FoodRecipe> {
         when {
             response.message().toString().contains("timeout") -> {
                 return Resource.Error("Timeout")

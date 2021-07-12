@@ -110,9 +110,9 @@
                     android:id="@+id/imgClock"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="24dp"
                     android:contentDescription="@string/app_name"
-                    app:layout_constraintStart_toEndOf="@+id/imgHeart"
+                    app:layout_constraintEnd_toEndOf="@+id/tvClock"
+                    app:layout_constraintStart_toStartOf="@+id/tvClock"
                     app:layout_constraintTop_toTopOf="@+id/imgHeart"
                     app:srcCompat="@drawable/ic_clock"
                     app:tint="@color/yellow" />
@@ -121,11 +121,11 @@
                     android:id="@+id/tvClock"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginStart="24dp"
                     android:setNumberOfMinutes="@{result.readyInMinutes}"
                     android:textAlignment="center"
                     android:textColor="@color/yellow"
-                    app:layout_constraintEnd_toEndOf="@+id/imgClock"
-                    app:layout_constraintStart_toStartOf="@+id/imgClock"
+                    app:layout_constraintStart_toEndOf="@+id/tvHeart"
                     app:layout_constraintTop_toBottomOf="@+id/imgClock"
                     tools:text="100" />
 
@@ -133,10 +133,10 @@
                     android:id="@+id/imgLeaf"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="24dp"
                     android:applyVeganColor="@{result.vegan}"
                     android:contentDescription="@string/app_name"
-                    app:layout_constraintStart_toEndOf="@+id/imgClock"
+                    app:layout_constraintEnd_toEndOf="@+id/tvLeaf"
+                    app:layout_constraintStart_toStartOf="@+id/tvLeaf"
                     app:layout_constraintTop_toTopOf="@+id/imgClock"
                     app:srcCompat="@drawable/ic_leaf" />
 
@@ -144,11 +144,11 @@
                     android:id="@+id/tvLeaf"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginStart="24dp"
                     android:applyVeganColor="@{result.vegan}"
                     android:text="@string/vegan"
                     android:textAlignment="center"
-                    app:layout_constraintEnd_toEndOf="@+id/imgLeaf"
-                    app:layout_constraintStart_toStartOf="@+id/imgLeaf"
+                    app:layout_constraintStart_toEndOf="@+id/tvClock"
                     app:layout_constraintTop_toBottomOf="@+id/imgLeaf" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
