@@ -12,6 +12,7 @@ import coil.load
 import com.example.foody.R
 import com.example.foody.data.model.Result
 import com.example.foody.ui.recipe.RecipesFragmentDirections
+import org.jsoup.Jsoup
 import java.lang.Exception
 
 class RecipesRowBinding {
@@ -75,6 +76,14 @@ class RecipesRowBinding {
                         )
                     }
                 }
+            }
+        }
+
+        @BindingAdapter("android:parseHtml")
+        @JvmStatic
+        fun parseHtml(textView: TextView, description: String?) {
+            if (!description.isNullOrBlank()) {
+                textView.text = Jsoup.parse(description).text()
             }
         }
 
