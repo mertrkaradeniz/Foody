@@ -16,6 +16,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Foody"
         tools:ignore="AllowBackup">
+        <activity
+            android:name=".ui.detail.DetailsActivity"
+            android:label="Details"
+            android:theme="@style/DetailsActivityStyle" />
         <activity android:name=".ui.main.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
