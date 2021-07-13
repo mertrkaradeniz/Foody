@@ -7,7 +7,6 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.foody.data.model.FoodRecipe
 import com.example.foody.data.model.Result
 import com.example.foody.databinding.RecipesRowLayoutBinding
-import com.example.foody.util.RecipesDiffUtil
 
 class RecipesAdapter : RecyclerView.Adapter<RecipesAdapter.RecipesViewHolder>() {
 
@@ -40,7 +39,7 @@ class RecipesAdapter : RecyclerView.Adapter<RecipesAdapter.RecipesViewHolder>() 
     override fun getItemCount() = recipes.size
 
     fun setData(newData: FoodRecipe) {
-        val recipesDiffUtil = RecipesDiffUtil(recipes, newData.results)
+        val recipesDiffUtil = com.example.foody.util.RecipesDiffUtil(recipes, newData.results)
         val diffUtilResult = DiffUtil.calculateDiff(recipesDiffUtil)
         recipes = newData.results
         diffUtilResult.dispatchUpdatesTo(this)
