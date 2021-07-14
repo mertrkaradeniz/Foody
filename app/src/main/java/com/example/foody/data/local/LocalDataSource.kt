@@ -1,5 +1,6 @@
 package com.example.foody.data.local
 
+import com.example.foody.data.model.RecipesEntity
 import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 

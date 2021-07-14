@@ -5,7 +5,7 @@ import android.content.Context
 import android.net.ConnectivityManager
 import android.net.NetworkCapabilities
 import androidx.lifecycle.*
-import com.example.foody.data.local.RecipesEntity
+import com.example.foody.data.model.RecipesEntity
 import com.example.foody.data.model.FoodRecipe
 import com.example.foody.data.repository.FoodRecipeRepository
 import com.example.foody.util.Resource
